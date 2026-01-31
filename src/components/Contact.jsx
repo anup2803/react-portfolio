@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
+import { toast } from "react-toastify";
+
 import {
   FaDribbble,
   FaEnvelope,
@@ -9,7 +12,31 @@ import {
   FaPhone,
   FaTwitter,
 } from "react-icons/fa";
+import { github, linkedin } from "../assets/assets";
 const Contact = () => {
+  const formRef = useRef();
+  const [loading, setLoading] = useState(false);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      )
+      .then(() => {
+        toast.success("Message sent 🚀");
+        formRef.current.reset();
+      })
+      .catch(() => {
+        toast.error("Failed to send ❌");
+      })
+      .finally(() => setLoading(false));
+  };
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -30,7 +57,7 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
           {/* contact form */}
           <div>
-            <form action="" className="space-y-6">
+            <form ref={formRef} onSubmit={sendEmail} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-gray-300 mb-2">
                   Your Name
@@ -38,8 +65,8 @@ const Contact = () => {
                 <input
                   type="text"
                   className="w-full bg-dark-300 border border-dark-400 rounded-lg px-4 py-3 outline-none"
-                  name=""
-                  id=""
+                  name="name"
+                  required
                 />
               </div>
               <div>
@@ -47,10 +74,10 @@ const Contact = () => {
                   Your Email
                 </label>
                 <input
-                  type="text"
+                  type="email"
                   className="w-full bg-dark-300 border border-dark-400 rounded-lg px-4 py-3 outline-none"
-                  name=""
-                  id=""
+                  name="email"
+                  required
                 />
               </div>
               <div>
@@ -58,17 +85,17 @@ const Contact = () => {
                   Your Message
                 </label>
                 <textarea
-                  type="text"
                   className="w-full h-40 bg-dark-300 border border-dark-400 rounded-lg px-4 py-3 outline-none"
-                  name=""
-                  id=""
+                  name="message"
+                  required
                 />
               </div>
               <button
                 type="submit"
                 className="w-full px-6 py-3 bg-purple rounded-lg font-medium hover:bg-purple-700 transition duration-300"
+                disabled={loading}
               >
-                Send Message
+                {loading ? "Sending" : "Send Message"}
               </button>
             </form>
           </div>
@@ -89,7 +116,7 @@ const Contact = () => {
               </div>
               <div>
                 <h3 className="text-lg font-semibold mb-2">Email</h3>
-                <p className="text-gray-400">anup@example.com</p>
+                <p className="text-gray-400">morxffxz@gmail.com</p>
               </div>
             </div>
             <div className="flex items-start">
@@ -105,29 +132,23 @@ const Contact = () => {
               <h3 className="text-lg font-semibold mb-4">Follow Me</h3>
               <div className="flex space-x-4">
                 <a
-                  href="#"
+                  href={github}
                   className="w-12 h-12 rounded-full bg-dark-300 flex items-center justify-center text-white hover:bg-gray-600 hover:text-white transition duration-300"
                 >
                   <FaGithub />
                 </a>
                 <a
-                  href="#"
+                  href={linkedin}
                   className="w-12 h-12 rounded-full bg-dark-300 flex items-center justify-center text-white hover:bg-blue-400 hover:text-white transition duration-300"
                 >
                   <FaLinkedin />
                 </a>
-                <a
+                {/* <a
                   href="#"
                   className="w-12 h-12 rounded-full bg-dark-300 flex items-center justify-center text-blue-400 hover:bg-blue-400 hover:text-white transition duration-300"
                 >
                   <FaTwitter />
-                </a>
-                <a
-                  href="#"
-                  className="w-12 h-12 rounded-full bg-dark-300 flex items-center justify-center text-pink hover:bg-pink hover:text-white transition duration-300"
-                >
-                  <FaDribbble />
-                </a>
+                </a> */}
               </div>
             </div>
           </div>
