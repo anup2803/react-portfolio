@@ -12,7 +12,6 @@ import {
   FaFire,
   FaDatabase,
   FaCloud,
-  FaRobot,
 } from "react-icons/fa";
 
 import profileImg from "../assets/profile.png";
