@@ -26,15 +26,17 @@ const Project = () => {
             <ProjectCard key={index} {...project} />
           ))}
         </div>
-        <div className="text-center mt-12">
-          <a
-            href="#"
-            className="inline-flex items-center px-6 py-3 border border-purple rounded-lg hover:bg-purple/20 transition duration-300"
-          >
-            <span className="pr-2">View More Project</span>
-            <FaArrowRight />
-          </a>
-        </div>
+        {projects.length > 3 && (
+          <div className="text-center mt-12">
+            <a
+              href="#"
+              className="inline-flex items-center px-6 py-3 border border-purple rounded-lg hover:bg-purple/20 transition duration-300"
+            >
+              <span className="pr-2">View More Project</span>
+              <FaArrowRight />
+            </a>
+          </div>
+        )}
       </div>
     </motion.div>
   );
