@@ -17,6 +17,7 @@ import {
 import profileImg from "../assets/profile.png";
 import projectImg1 from "../assets/project1.png";
 import projectImg2 from "../assets/project2.png";
+import projectImg3 from "../assets/project3.png";
 
 export const assets = {
   profileImg,
@@ -106,16 +107,14 @@ export const projects = [
     icons: [FaVuejs, FaFire, FaCloud, FaDatabase],
     demo: "https://anup2803.github.io/Dice-Game/",
   },
-  // {
-  //   title: "Fitness Tracker",
-  //   description:
-  //     "A mobile app for tracking workouts, nutrition, and health metrics.",
-  //   image: projectImg3,
-  //   tech: ["React Native", "GraphQL", "MySQL", "Chart.js"],
-  //   icons: [FaReact, FaDatabase],
-  //   demo: "#",
-  //   code: "#",
-  // },
+  {
+    title: "Youtube Clone",
+    description: "Youtube Clone using Youtube Api with react js .",
+    image: projectImg3,
+    tech: ["React JS"],
+    icons: [FaReact],
+    demo: "https://youtube-clone-yt3k.onrender.com",
+  },
   // {
   //   title: "Portfolio Website",
   //   description:
