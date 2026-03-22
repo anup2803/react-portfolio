@@ -18,7 +18,7 @@ import profileImg from "../assets/profile.png";
 import projectImg1 from "../assets/project1.png";
 import projectImg2 from "../assets/project2.png";
 import projectImg3 from "../assets/project3.png";
-
+import projectImg6 from "../assets/projectImg6.png";
 export const assets = {
   profileImg,
 };
