@@ -136,15 +136,15 @@ export const projects = [
   //   code: "#",
   // },
   // {
-  //   title: "AI Image Generator",
-  //   description:
-  //     "Generate images using AI prompts powered by OpenAI's DALL·E model and Cloudinary.",
-  //   image: projectImg6,
-  //   tech: ["React", "OpenAI API", "Cloudinary", "Tailwind CSS"],
-  //   icons: [FaRobot, FaReact, FaCloud],
-  //   demo: "#",
-  //   code: "#",
-  // },
+  {
+    title: "AI Website Builder",
+    description:
+      "A web-based AI tool that generates complete website layouts and content from user prompts. Users can quickly build and preview modern websites without coding.",
+    image: projectImg6,
+    tech: ["React", "Node.js", "OpenAI API", "Tailwind CSS", "MongoDB"],
+    icons: [FaRobot, FaReact, FaCloud],
+    demo: "https://webaifrontend.onrender.com/",
+  },
 ];
 
 export const workData = [
