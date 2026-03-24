@@ -26,7 +26,7 @@ const Project = () => {
             <ProjectCard key={index} {...project} />
           ))}
         </div>
-        {projects.length > 3 && (
+        {projects.length > 6 && (
           <div className="text-center mt-12">
             <a
               href="#"
